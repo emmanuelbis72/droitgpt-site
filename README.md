@@ -1,2 +1,0 @@
-# droitgpt-site
-DROITGPT
