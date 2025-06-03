@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DroitGPT Congo</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f4f7fa;
+        }
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        header img {
+            height: 40px;
+        }
+        nav select {
+            padding: 6px;
+            font-size: 16px;
+        }
+        main {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        textarea, button {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        #responseOutput {
+            background: #eef2f5;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 10px;
+            min-height: 100px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div><img src="logo_droitgpt.png" alt="DroitGPT Logo"></div>
+        <nav>
+            <select id="langSelect" onchange="changeLang()">
+                <option value="fr">Français</option>
+                <option value="ln">Lingala</option>
+                <option value="sw">Swahili</option>
+                <option value="kg">Kikongo</option>
+                <option value="ts">Tshiluba</option>
+                <option value="ms">Mashi</option>
+            </select>
+        </nav>
+    </header>
+
+    <main>
+        <h1 id="title">DroitGPT Congo</h1>
+        <p id="instruction">Posez votre question juridique :</p>
+        <textarea id="userInput" placeholder="Ex : Quels sont les droits d’un locataire ?"></textarea>
+        <button onclick="askDroitGPT()">Envoyer</button>
+        <div id="responseOutput">La réponse s'affichera ici...</div>
+    </main>
+
+    <footer>&copy; 2025 DroitGPT Congo</footer>
+
+    <script src="script.js"></script>
+    <script>
+        function changeLang() {
+            const lang = document.getElementById("langSelect").value;
+            const texts = {
+                fr: ["DroitGPT Congo", "Posez votre question juridique :", "Envoyer"],
+                ln: ["DroitGPT Congo", "Tuna kotuna mituna na misala ya mibeko :", "Tinda"],
+                sw: ["DroitGPT Congo", "Uliza swali lako la kisheria:", "Tuma"],
+                kg: ["DroitGPT Congo", "Bunaka kusukila bumbudi bwa mambu ma mambu ya mbongo:", "Tuma"],
+                ts: ["DroitGPT Congo", "Leka lipusha diambulu dia disambu:", "Tuma"],
+                ms: ["DroitGPT Congo", "Baza ikibazo ky’amategeko hano:", "Ohereza"]
+            };
+            const [t, i, b] = texts[lang];
+            document.getElementById("title").innerText = t;
+            document.getElementById("instruction").innerText = i;
+            document.querySelector("button").innerText = b;
+        }
+    </script>
+</body>
+</html>
